@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.example.android.two_pane.R;
 import com.example.android.two_pane.fragments.AndroidSegmentFragment;
+import com.example.android.two_pane.fragments.ViewPagerFragment;
 
 
 import java.util.List;
@@ -26,9 +27,12 @@ public class SimpleItemRecyclerViewAdapter
     private FragmentManager mFragmentManager;
     private List<Integer> mResourceIds;
 
-    public SimpleItemRecyclerViewAdapter(FragmentManager fm, List<Integer> items) {
+    private ViewPagerFragment vPager;
+
+    public SimpleItemRecyclerViewAdapter(FragmentManager fm, List<Integer> items, ViewPagerFragment vp) {
         mResourceIds = items;
         mFragmentManager = fm;
+        vPager = vp;
     }
 
     // set the list content
@@ -40,7 +44,7 @@ public class SimpleItemRecyclerViewAdapter
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         final int id = mResourceIds.get(position);
         holder.mItem.setImageResource(id);
@@ -62,6 +66,14 @@ public class SimpleItemRecyclerViewAdapter
                         .replace(R.id.test_container, fragment)
                         .commit();
 
+
+                // Update position of relevant view pager:
+
+
+                Log.v("TAG", "position clicked = " + position);
+                if(vPager != null) {
+                    vPager.setCurrentItem(position);
+                }
             }
         });
     }
