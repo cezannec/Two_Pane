@@ -1,9 +1,11 @@
 package com.example.android.two_pane.fragments;
 
+import android.Manifest;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -63,6 +65,13 @@ public class ViewPagerFragment extends Fragment {
 
                 // combo of all three images
                 Bitmap bitmap = SaveBitmapImageHelper.combineDrawables(getResources(), heads, bods, legs);
+
+                // TODO: check if you have write permission? see if I can force this in Manifest
+                // If you do not have permission, request it
+                ActivityCompat.requestPermissions(getActivity(),
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        1);
+
 
                 // save through content resolver
                 String imageSavedPath = MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, "Custom Android", null);
