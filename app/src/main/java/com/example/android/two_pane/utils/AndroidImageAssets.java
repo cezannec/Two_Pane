@@ -49,6 +49,7 @@ public class AndroidImageAssets {
         add(R.drawable.legs6);
         add(R.drawable.legs7);
         add(R.drawable.legs8);
+        add(R.drawable.legs9);
         add(R.drawable.legs10);
         add(R.drawable.legs11);
         add(R.drawable.legs12);

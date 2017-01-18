@@ -39,8 +39,7 @@ public class AndroidifyViewPagerAdapter extends FragmentStatePagerAdapter {
         return resourceIds.size();
     }
 
-    // TODO: fix this update of position in view adapter
-    // ** update position/fragment when master list is clicked - doesn't work...?
+    // Update position in view adapter
     @Override
     public int getItemPosition(Object item) {
         AndroidSegmentFragment fragment = (AndroidSegmentFragment) item;

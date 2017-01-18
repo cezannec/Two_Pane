@@ -44,9 +44,9 @@ public class SimpleItemRecyclerViewAdapter
     }
 
     @Override
-    public void onBindViewHolder(final ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
 
-        final int id = mResourceIds.get(position);
+        int id = mResourceIds.get(position);
         holder.mItem.setImageResource(id);
         //holder.mIdView.setText(mResourceIds.get(position).id);
         //holder.mContentView.setText(mResourceIds.get(position).content);
@@ -55,24 +55,34 @@ public class SimpleItemRecyclerViewAdapter
             @Override
             public void onClick(View v) {
 
-                // create a new instance of an AndroidSegmentFragment and set it's correct image resource
-                AndroidSegmentFragment fragment = new AndroidSegmentFragment();
-                fragment.setId(id);
-                Log.v("TAG", "Id clicked = " + id);
-
-
-                // replace old fragment
-                mFragmentManager.beginTransaction()
-                        .replace(R.id.test_container, fragment)
-                        .commit();
+//                // create a new instance of an AndroidSegmentFragment and set it's correct image resource
+//                AndroidSegmentFragment fragment = new AndroidSegmentFragment();
+//                fragment.setId(id);
+//                Log.v("TAG", "Id clicked = " + id);
+//
+//
+//                // replace old fragment
+//                mFragmentManager.beginTransaction()
+//                        .replace(R.id.test_container, fragment)
+//                        .commit();
 
 
                 // Update position of relevant view pager:
+                // addess or clean up weird math
 
+                int pos = holder.getAdapterPosition();
 
-                Log.v("TAG", "position clicked = " + position);
+                Log.v("TAG", "position clicked = " + pos);
+                int vPagerIndex = Math.round(pos/12);
+                Log.v("TAG", "vpager index (0-2) = " + vPagerIndex);
+
+                // modify position so that it suits the vPager clicked:
+                pos = pos - 12*vPagerIndex;
+                Log.v("NEW tag", "NEW position clicked = " + pos);
+
                 if(vPager != null) {
-                    vPager.setCurrentItem(position);
+                    //vPager.getViewPager(vPagerIndex).setCurrentItem(5);
+                    vPager.getViewPager(vPagerIndex).setCurrentItem(pos);
                 }
             }
         });

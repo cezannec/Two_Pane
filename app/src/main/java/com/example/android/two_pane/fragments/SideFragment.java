@@ -17,6 +17,9 @@ import com.example.android.two_pane.utils.AndroidImageAssets;
 import com.example.android.two_pane.utils.AndroidifyViewPagerAdapter;
 import com.example.android.two_pane.utils.SimpleItemRecyclerViewAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by cezannec on 1/11/17.
  */
@@ -46,7 +49,14 @@ public class SideFragment extends Fragment {
         Log.v("Side Frag", "Activity : "+ (getActivity().getLocalClassName()));
         Log.v("Side Frag", "view pager, y/n ? "+ (vp != null));
 
-        headRecView.setAdapter(new SimpleItemRecyclerViewAdapter(fragmentManager, AndroidImageAssets.getHeads(), vp));
+        // concatenate ALL images:
+        List<Integer> allImageIds = new ArrayList<Integer>();
+        allImageIds.addAll(AndroidImageAssets.getHeads());
+        allImageIds.addAll(AndroidImageAssets.getBods());
+        allImageIds.addAll(AndroidImageAssets.getLegs());
+
+
+        headRecView.setAdapter(new SimpleItemRecyclerViewAdapter(fragmentManager, allImageIds, vp));
         headRecView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
 
         //bodyRecView.setAdapter(new SimpleItemRecyclerViewAdapter(fragmentManager, AndroidImageAssets.getBods(), vp));
