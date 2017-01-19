@@ -45,28 +45,12 @@ public class CustomRecyclerViewAdapter
         holder.mItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 // Update position of relevant view pager
                 // First get the currently selected position of the selected item
                 int clickedPosition = holder.getAdapterPosition();
 
-//                // Using the fact that there are 12 of each head, body, and leg images, we can identify the
-//                //   correct ViewPager that they are linked to based on the currentPosition/12
-//                int viewPagerIndex = Math.round(currentPosition/12);
-//
-//                // Modify the position so that it falls in the range of items in each ViewPager
-//                currentPosition = currentPosition - 12*viewPagerIndex;
-//
-//                // TODO: remove Log lines that are my own debugging
-//                Log.v("RecyclerAdapterTAG", "position clicked = " + currentPosition);
-//                Log.v("RecyclerAdapterTAG", "vpager index (0-2) = " + viewPagerIndex);
-//                Log.v("RecyclerAdapterTAG", "Newly calculated position clicked = " + currentPosition);
-//
-//                // Update the current position of the relevant ViewPager
-//                if(mViewPagersFragment != null) {
-//                    mViewPagersFragment.getViewPager(viewPagerIndex).setCurrentItem(currentPosition);
-//                }
-
+                // If the ViewPagersFragment exists, update it so that it is at the currently
+                //   selected position
                 if(mViewPagersFragment != null) {
                     mViewPagersFragment.updateViewPager(clickedPosition);
                 }

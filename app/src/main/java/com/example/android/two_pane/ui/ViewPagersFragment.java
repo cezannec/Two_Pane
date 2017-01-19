@@ -84,13 +84,12 @@ public class ViewPagersFragment extends Fragment {
                 // Combine all three images in one Bitmap image
                 Bitmap bitmap = SaveBitmapImageHelper.combineSelectedImages(getResources(), heads, bods, legs);
 
-                // TODO: check if you have write permission? see if I can force this in Manifest
-                // If you do not have permission, request it
+                // This line asks for permission to write to the image gallery, which is external storage
                 ActivityCompat.requestPermissions(getActivity(),
                         new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         1);
 
-                // Save through the media content resolver
+                // Save through the media ContentResolver
                 MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), bitmap, "Custom Android", null);
             }
         });
