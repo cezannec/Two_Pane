@@ -16,9 +16,8 @@
     <!-- Show BOTH the Master list and main Android-Me ViewPager fragments in this tablet layout -->
 
     <!-- Master list of images -->
-    <fragment
+    <FrameLayout
         android:id="@+id/side_panel"
-        class="com.example.android.two_pane.ui.SideListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />

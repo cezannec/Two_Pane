@@ -51,7 +51,7 @@ public class CustomRecyclerViewAdapter
                 int clickedPosition = holder.getAdapterPosition();
 
 //                // Using the fact that there are 12 of each head, body, and leg images, we can identify the
-//                //   correct ViewPager that they are linked to based on te currentPosition/12
+//                //   correct ViewPager that they are linked to based on the currentPosition/12
 //                int viewPagerIndex = Math.round(currentPosition/12);
 //
 //                // Modify the position so that it falls in the range of items in each ViewPager
