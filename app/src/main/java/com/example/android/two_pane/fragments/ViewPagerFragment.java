@@ -45,8 +45,24 @@ public class ViewPagerFragment extends Fragment {
         return rootView;
     }
 
+
+    // This will allow for communication and updating between this fragment and the Master list
+    public void updateViewPager(int currentPosition) {
+
+        // Using the fact that there are 12 of each head, body, and leg images, we can identify the
+        //   correct ViewPager that they are linked to based on the currentPosition/12
+        // (This also rounds down to the nearest int)
+        int viewPagerIndex = currentPosition/12;
+
+        // Modify the position so that it falls in the range of items in each ViewPager
+        currentPosition = currentPosition - 12*viewPagerIndex;
+
+        // Set the currently displayed item in the ViewPager
+        getViewPager(viewPagerIndex).setCurrentItem(currentPosition);
+
+    }
+
     // This method retrieves a specific ViewPager in this fragment
-    // This will allow for communication between this fragment and the Master list
     public ViewPager getViewPager(int vp) {
         switch(vp) {
             case 0: return viewPagerHead;
@@ -56,7 +72,7 @@ public class ViewPagerFragment extends Fragment {
         }
     }
 
-    // Save functionality
+    // Save image functionality
     private void createSaveButton(View rootView, final ViewPager viewPagerHead, final ViewPager viewPagerBody, final ViewPager viewPagerLegs) {
         Button saveButton = (Button) rootView.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
