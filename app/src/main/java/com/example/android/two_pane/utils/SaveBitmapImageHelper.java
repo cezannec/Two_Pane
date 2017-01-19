@@ -17,15 +17,19 @@ public class SaveBitmapImageHelper {
         Bitmap bodyBitmap = getBitmap(resources, body);
         Bitmap legsBitmap = getBitmap(resources, legs);
 
-        int height = headBitmap.getHeight() + bodyBitmap.getHeight() + legsBitmap.getHeight();
+        int combinedHeight = headBitmap.getHeight() + bodyBitmap.getHeight() + legsBitmap.getHeight();
         int width = Math.max(headBitmap.getWidth(), Math.max(bodyBitmap.getWidth(), legsBitmap.getWidth()));
 
-        Bitmap result = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
-        Canvas comboImage = new Canvas(result);
-        comboImage.drawBitmap(headBitmap, 0f, 0f, null);
-        comboImage.drawBitmap(bodyBitmap, 0f, headBitmap.getHeight(), null);
-        comboImage.drawBitmap(legsBitmap, 0f, headBitmap.getHeight() + bodyBitmap.getHeight(), null);
+        // Create Bitmap of specified size, width, and color representation
+        Bitmap finalImage = Bitmap.createBitmap(width, combinedHeight, Bitmap.Config.ARGB_8888);
 
-        return result;
+        // Create new canvas to draw all three Android-Me pieces
+        // Draw each at the correct height offset
+        Canvas combinedImage = new Canvas(finalImage);
+        combinedImage.drawBitmap(headBitmap, 0f, 0f, null);
+        combinedImage.drawBitmap(bodyBitmap, 0f, headBitmap.getHeight(), null);
+        combinedImage.drawBitmap(legsBitmap, 0f, headBitmap.getHeight() + bodyBitmap.getHeight(), null);
+
+        return finalImage;
     }
 }

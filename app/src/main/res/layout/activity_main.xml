@@ -1,22 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Shows only the Android-Me ViewPagerFragment in this phone layout -->
+
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/main_panel"
+    android:name="com.example.android.two_pane.fragments.ViewPagerFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.android.two_pane.MainActivity">
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    tools:context="com.example.android.two_pane.MainActivity"
+    tools:layout="@android:layout/list_content" />
 
-    <!-- Show only the main fragment in this phone layout -->
-    <fragment
-        android:id="@+id/main_panel"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        class="com.example.android.two_pane.fragments.ViewPagerFragment" />
 
-</RelativeLayout>
+

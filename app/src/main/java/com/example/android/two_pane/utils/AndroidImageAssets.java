@@ -6,7 +6,7 @@ import com.example.android.two_pane.R;
 import java.util.ArrayList;
 import java.util.List;
 
-// Util class for storing all the drawables in arraylists
+// Util class for storing all the image drawables in ArrayLists
 
 public class AndroidImageAssets {
 

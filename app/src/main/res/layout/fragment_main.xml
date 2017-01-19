@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <!-- evenly spaced viewpagers for each body part -->
+<!-- Main fragment that displays all the Android-Me images as one customizable layout -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Three evenly spaced ViewPagers for each Android-Me body part -->
 
     <android.support.v4.view.ViewPager
         android:id="@+id/headPager"
@@ -14,22 +17,23 @@
 
     <android.support.v4.view.ViewPager
         android:id="@+id/bodyPager"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/legPager"
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
+    <!-- Save button that connects to code to save an image to a phone's image gallery -->
     <Button
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/saveButton"
-        android:src="@android:drawable/arrow_down_float"
         android:layout_gravity="center_horizontal"
+        android:src="@android:drawable/arrow_down_float"
         android:text="Save"/>
 
 </LinearLayout>

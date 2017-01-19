@@ -1,8 +1,5 @@
 package com.example.android.two_pane.utils;
 
-import android.content.Context;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.android.two_pane.R;
-import com.example.android.two_pane.fragments.AndroidSegmentFragment;
 import com.example.android.two_pane.fragments.ViewPagerFragment;
 
 
@@ -24,15 +20,12 @@ import java.util.List;
 public class SimpleItemRecyclerViewAdapter
         extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
-    private FragmentManager mFragmentManager;
-    private List<Integer> mResourceIds;
+    private List<Integer> mImageIds;
+    private ViewPagerFragment mViewPagerFragment;
 
-    private ViewPagerFragment vPager;
-
-    public SimpleItemRecyclerViewAdapter(FragmentManager fm, List<Integer> items, ViewPagerFragment vp) {
-        mResourceIds = items;
-        mFragmentManager = fm;
-        vPager = vp;
+    public SimpleItemRecyclerViewAdapter(List<Integer> imageIds, ViewPagerFragment viewPagerFragment) {
+        mImageIds = imageIds;
+        mViewPagerFragment = viewPagerFragment;
     }
 
     // set the list content
@@ -46,29 +39,16 @@ public class SimpleItemRecyclerViewAdapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
-        int id = mResourceIds.get(position);
+        int id = mImageIds.get(position);
         holder.mItem.setImageResource(id);
-        //holder.mIdView.setText(mResourceIds.get(position).id);
-        //holder.mContentView.setText(mResourceIds.get(position).content);
+
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                // create a new instance of an AndroidSegmentFragment and set it's correct image resource
-//                AndroidSegmentFragment fragment = new AndroidSegmentFragment();
-//                fragment.setId(id);
-//                Log.v("TAG", "Id clicked = " + id);
-//
-//
-//                // replace old fragment
-//                mFragmentManager.beginTransaction()
-//                        .replace(R.id.test_container, fragment)
-//                        .commit();
-
-
                 // Update position of relevant view pager:
-                // addess or clean up weird math
+                // address or clean up weird math
 
                 int pos = holder.getAdapterPosition();
 
@@ -76,13 +56,12 @@ public class SimpleItemRecyclerViewAdapter
                 int vPagerIndex = Math.round(pos/12);
                 Log.v("TAG", "vpager index (0-2) = " + vPagerIndex);
 
-                // modify position so that it suits the vPager clicked:
+                // modify position so that it suits the mViewPagerFragment clicked:
                 pos = pos - 12*vPagerIndex;
                 Log.v("NEW tag", "NEW position clicked = " + pos);
 
-                if(vPager != null) {
-                    //vPager.getViewPager(vPagerIndex).setCurrentItem(5);
-                    vPager.getViewPager(vPagerIndex).setCurrentItem(pos);
+                if(mViewPagerFragment != null) {
+                    mViewPagerFragment.getViewPager(vPagerIndex).setCurrentItem(pos);
                 }
             }
         });
@@ -90,19 +69,16 @@ public class SimpleItemRecyclerViewAdapter
 
     @Override
     public int getItemCount() {
-        return mResourceIds.size();
+        return mImageIds.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        //public final TextView mIdView;
-        //public final TextView mContentView;
         public ImageView mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            //mIdView = (TextView) view.findViewById(R.id.id);
             mItem = (ImageView) view.findViewById(R.id.image);
         }
 
