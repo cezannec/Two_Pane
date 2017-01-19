@@ -6,4 +6,4 @@
     android:id="@+id/androidme_image"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:contentDescription="Android-Me image of a head, body, or legs"/>
+    android:contentDescription="@string/android_me_content_desc"/>

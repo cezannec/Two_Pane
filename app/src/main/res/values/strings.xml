@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Two_Pane</string>
+    <string name="app_name">Android-Me</string>
+
+    <!-- Strings used in layouts -->
+
+    <string name="android_me_content_desc">Android-Me image of a head, body, or legs</string>
+    <string name="save_text">Save</string>
 </resources>

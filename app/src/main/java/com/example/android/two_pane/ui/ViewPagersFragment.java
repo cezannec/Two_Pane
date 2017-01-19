@@ -15,7 +15,7 @@ import android.widget.Button;
 
 import com.example.android.two_pane.R;
 import com.example.android.two_pane.data.AndroidImageAssets;
-import com.example.android.two_pane.adapter.AndroidifyViewPagerAdapter;
+import com.example.android.two_pane.adapter.AndroidMeViewPagerAdapter;
 import com.example.android.two_pane.util.SaveBitmapImageHelper;
 
 public class ViewPagersFragment extends Fragment {
@@ -36,9 +36,9 @@ public class ViewPagersFragment extends Fragment {
         viewPagerLegs = (ViewPager) rootView.findViewById(R.id.legPager);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        viewPagerHead.setAdapter(new AndroidifyViewPagerAdapter(fragmentManager, AndroidImageAssets.getHeads()));
-        viewPagerBody.setAdapter(new AndroidifyViewPagerAdapter(fragmentManager, AndroidImageAssets.getBods()));
-        viewPagerLegs.setAdapter(new AndroidifyViewPagerAdapter(fragmentManager, AndroidImageAssets.getLegs()));
+        viewPagerHead.setAdapter(new AndroidMeViewPagerAdapter(fragmentManager, AndroidImageAssets.getHeads()));
+        viewPagerBody.setAdapter(new AndroidMeViewPagerAdapter(fragmentManager, AndroidImageAssets.getBods()));
+        viewPagerLegs.setAdapter(new AndroidMeViewPagerAdapter(fragmentManager, AndroidImageAssets.getLegs()));
 
         createSaveButton(rootView, viewPagerHead, viewPagerBody, viewPagerLegs);
 

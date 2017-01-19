@@ -8,11 +8,11 @@ import com.example.android.two_pane.ui.AndroidMeImageFragment;
 
 import java.util.List;
 
-public class AndroidifyViewPagerAdapter extends FragmentStatePagerAdapter {
+public class AndroidMeViewPagerAdapter extends FragmentStatePagerAdapter {
 
     private List<Integer> mImageIds;
 
-    public AndroidifyViewPagerAdapter(FragmentManager fm, List<Integer> imageIds) {
+    public AndroidMeViewPagerAdapter(FragmentManager fm, List<Integer> imageIds) {
         super(fm);
         mImageIds = imageIds;
     }

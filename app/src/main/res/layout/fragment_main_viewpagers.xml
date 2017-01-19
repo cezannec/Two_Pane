@@ -40,11 +40,11 @@
     <!-- Save button that connects to code to save an image to a phone's image gallery -->
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:src="@android:drawable/arrow_down_float"
-        android:text="Save"
+        android:text="@string/save_text"
         android:textSize="20sp"
         android:padding="8dp"
         android:layout_margin="16dp"/>
