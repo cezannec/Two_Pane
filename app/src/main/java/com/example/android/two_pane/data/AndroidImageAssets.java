@@ -1,4 +1,4 @@
-package com.example.android.two_pane.utils;
+package com.example.android.two_pane.data;
 
 
 import com.example.android.two_pane.R;

@@ -1,4 +1,4 @@
-package com.example.android.two_pane.utils;
+package com.example.android.two_pane.util;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -12,7 +12,8 @@ public class SaveBitmapImageHelper {
                 drawableResourceId);
     }
 
-    public static Bitmap combineDrawables(Resources resources, int head, int body, int legs) {
+    // Combine all selected Android-Me images (head, body, and legs) into one complete Bitmap
+    public static Bitmap combineSelectedImages(Resources resources, int head, int body, int legs) {
         Bitmap headBitmap = getBitmap(resources, head);
         Bitmap bodyBitmap = getBitmap(resources, body);
         Bitmap legsBitmap = getBitmap(resources, legs);

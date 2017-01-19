@@ -1,4 +1,4 @@
-package com.example.android.two_pane.fragments;
+package com.example.android.two_pane.ui;
 
 import android.Manifest;
 import android.graphics.Bitmap;
@@ -14,11 +14,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.android.two_pane.R;
-import com.example.android.two_pane.utils.AndroidImageAssets;
-import com.example.android.two_pane.utils.AndroidifyViewPagerAdapter;
-import com.example.android.two_pane.utils.SaveBitmapImageHelper;
+import com.example.android.two_pane.data.AndroidImageAssets;
+import com.example.android.two_pane.adapter.AndroidifyViewPagerAdapter;
+import com.example.android.two_pane.util.SaveBitmapImageHelper;
 
-public class ViewPagerFragment extends Fragment {
+public class ViewPagersFragment extends Fragment {
 
     ViewPager viewPagerHead;
     ViewPager viewPagerBody;
@@ -27,7 +27,7 @@ public class ViewPagerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main_viewpagers, container, false);
 
         // Create three view pagers - one for each Android-Me body part
         // You can mix the order of these up for an entertaining effect
@@ -59,7 +59,6 @@ public class ViewPagerFragment extends Fragment {
 
         // Set the currently displayed item in the ViewPager
         getViewPager(viewPagerIndex).setCurrentItem(currentPosition);
-
     }
 
     // This method retrieves a specific ViewPager in this fragment
@@ -83,7 +82,7 @@ public class ViewPagerFragment extends Fragment {
                 Integer legs = AndroidImageAssets.getLegs().get(viewPagerLegs.getCurrentItem());
 
                 // Combine all three images in one Bitmap image
-                Bitmap bitmap = SaveBitmapImageHelper.combineDrawables(getResources(), heads, bods, legs);
+                Bitmap bitmap = SaveBitmapImageHelper.combineSelectedImages(getResources(), heads, bods, legs);
 
                 // TODO: check if you have write permission? see if I can force this in Manifest
                 // If you do not have permission, request it

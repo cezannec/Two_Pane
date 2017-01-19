@@ -1,9 +1,9 @@
-package com.example.android.two_pane;
+package com.example.android.two_pane.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.android.two_pane.fragments.SideFragment;
+import com.example.android.two_pane.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             // fragment transaction.
             if (savedInstanceState == null) {
                 getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.side_panel, new SideFragment(), "Temp tag")
+                        .replace(R.id.side_panel, new SideListFragment(), "Temp tag")
                         .commit();
             }
         } else {

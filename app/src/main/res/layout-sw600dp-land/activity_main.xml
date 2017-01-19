@@ -11,22 +11,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.android.two_pane.MainActivity">
+    tools:context="com.example.android.two_pane.ui.MainActivity">
 
     <!-- Show BOTH the Master list and main Android-Me ViewPager fragments in this tablet layout -->
 
     <!-- Master list of images -->
     <fragment
         android:id="@+id/side_panel"
-        class="com.example.android.two_pane.fragments.SideFragment"
+        class="com.example.android.two_pane.ui.SideListFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
-    <!-- Android-Me ViewPagerFragment layout -->
+    <!-- Android-Me ViewPagersFragment layout -->
     <fragment
         android:id="@+id/main_panel"
-        class="com.example.android.two_pane.fragments.ViewPagerFragment"
+        class="com.example.android.two_pane.ui.ViewPagersFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1" />

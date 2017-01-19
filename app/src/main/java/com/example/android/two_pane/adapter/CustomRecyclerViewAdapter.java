@@ -1,14 +1,13 @@
-package com.example.android.two_pane.utils;
+package com.example.android.two_pane.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.android.two_pane.R;
-import com.example.android.two_pane.fragments.ViewPagerFragment;
+import com.example.android.two_pane.ui.ViewPagersFragment;
 
 
 import java.util.List;
@@ -17,22 +16,22 @@ import java.util.List;
  * Created by cezannec on 1/11/17.
  */
 
-public class SimpleItemRecyclerViewAdapter
-        extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
+public class CustomRecyclerViewAdapter
+        extends RecyclerView.Adapter<CustomRecyclerViewAdapter.ViewHolder> {
 
     private List<Integer> mImageIds;
-    private ViewPagerFragment mViewPagerFragment;
+    private ViewPagersFragment mViewPagersFragment;
 
-    public SimpleItemRecyclerViewAdapter(List<Integer> imageIds, ViewPagerFragment viewPagerFragment) {
+    public CustomRecyclerViewAdapter(List<Integer> imageIds, ViewPagersFragment viewPagersFragment) {
         mImageIds = imageIds;
-        mViewPagerFragment = viewPagerFragment;
+        mViewPagersFragment = viewPagersFragment;
     }
 
     // Set the list content
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.list_content, parent, false);
+                .inflate(R.layout.item_side_list_image, parent, false);
         return new ViewHolder(view);
     }
 
@@ -64,12 +63,12 @@ public class SimpleItemRecyclerViewAdapter
 //                Log.v("RecyclerAdapterTAG", "Newly calculated position clicked = " + currentPosition);
 //
 //                // Update the current position of the relevant ViewPager
-//                if(mViewPagerFragment != null) {
-//                    mViewPagerFragment.getViewPager(viewPagerIndex).setCurrentItem(currentPosition);
+//                if(mViewPagersFragment != null) {
+//                    mViewPagersFragment.getViewPager(viewPagerIndex).setCurrentItem(currentPosition);
 //                }
 
-                if(mViewPagerFragment != null) {
-                    mViewPagerFragment.updateViewPager(clickedPosition);
+                if(mViewPagersFragment != null) {
+                    mViewPagersFragment.updateViewPager(clickedPosition);
                 }
             }
         });

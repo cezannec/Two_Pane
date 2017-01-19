@@ -1,10 +1,10 @@
-package com.example.android.two_pane.utils;
+package com.example.android.two_pane.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.android.two_pane.fragments.AndroidMeImageFragment;
+import com.example.android.two_pane.ui.AndroidMeImageFragment;
 
 import java.util.List;
 

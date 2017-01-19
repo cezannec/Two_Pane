@@ -1,14 +1,14 @@
-<!-- Shows only the Android-Me ViewPagerFragment in this phone layout -->
+<!-- Shows only the Android-Me ViewPagersFragment in this phone layout -->
 
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_panel"
-    android:name="com.example.android.two_pane.fragments.ViewPagerFragment"
+    android:name="com.example.android.two_pane.ui.ViewPagersFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    tools:context="com.example.android.two_pane.MainActivity"
+    tools:context="com.example.android.two_pane.ui.MainActivity"
     tools:layout="@android:layout/list_content" />
 
 

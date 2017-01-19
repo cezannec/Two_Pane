@@ -1,4 +1,4 @@
-package com.example.android.two_pane.fragments;
+package com.example.android.two_pane.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -27,7 +27,7 @@ public class AndroidMeImageFragment extends Fragment {
         }
 
         // Inflate the Android-Me image segment, populating it with an image based on it's resource id
-        View rootView = inflater.inflate(R.layout.fragment_android_segment, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_androidme_image, container, false);
         ImageView imageView = (ImageView) rootView.findViewById(R.id.androidme_image);
 
         // Set the currently selected image resource id
